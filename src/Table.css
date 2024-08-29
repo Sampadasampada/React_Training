@@ -1,0 +1,78 @@
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  /* Table headers */
+  thead th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  /* Table rows and cells */
+  tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Row hover effect */
+  tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Even row coloring */
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Optional: Style for last row */
+  tbody td:last-child {
+    text-align: center;
+  }
+  
+  /* Responsive table for smaller screens */
+  @media screen and (max-width: 600px) {
+    table {
+      font-size: 14px;
+    }
+  }
+  
+  /* Button container styling */
+  .button-container {
+    margin: 20px 0;
+  }
+  
+  /* General button styling */
+  .button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 0 10px; /* Space between buttons */
+  }
+  
+  /* Fetch button styling */
+  .button-fetch {
+    background-color: #4CAF50;
+  }
+  
+  /* Clear button styling */
+  .button-clear {
+    background-color: #f44336;
+  }
+  
+  /* Responsive button styles */
+  @media screen and (max-width: 600px) {
+    .button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
