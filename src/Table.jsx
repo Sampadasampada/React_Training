@@ -1,55 +1,55 @@
-// import './Assessment_1b.css';
+import './Table.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function UserDetailsTable() {
-  const [userData, setUserData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+function UserInformationTable() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const fetchUserInformation = async () => {
+  const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-      setUserData(response.data);
-      setIsLoading(false);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      setIsLoading(false);
+      const result = await axios.get('https://jsonplaceholder.typicode.com/users');
+      setUsers(result.data);
+      setLoading(false);
+    } catch (err) {
+      console.error('Failed to retrieve user data:', err);
+      setLoading(false);
     }
   };
 
-  const handleDisplayData = () => {
-    fetchUserInformation();
+  const showData = () => {
+    fetchUsers();
   };
 
-  const handleClearData = () => {
-    setUserData([]);
+  const clearData = () => {
+    setUsers([]);
   };
 
   useEffect(() => {
-    fetchUserInformation();
+    fetchUsers();
   }, []);
 
-  if (isLoading) {
-    return <p>Retrieving user data...</p>;
+  if (loading) {
+    return <p>Loading user information...</p>;
   }
 
   return (
     <div>
-      <h1>User Details</h1>
-      <div className="button-container">
-        <button className="button button-fetch" onClick={handleDisplayData}>Show Data</button>
-        <button className="button button-clear" onClick={handleClearData}>Clear Data</button>
+      <h1>User Information</h1>
+      <div className="action-buttons">
+        <button className="btn btn-show" onClick={showData}>Display</button>
+        <button className="btn btn-clear" onClick={clearData}>Clear</button>
       </div>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Full Name</th>
+            <th>Email Address</th>
           </tr>
         </thead>
         <tbody>
-          {userData.map(user => (
+          {users.map(user => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.name}</td>
@@ -62,4 +62,4 @@ function UserDetailsTable() {
   );
 }
 
-export default UserDetailsTable;
+export default UserInformationTable;
